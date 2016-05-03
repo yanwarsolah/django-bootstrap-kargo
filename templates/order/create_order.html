@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% load i18n %}
+{% load widget_tweaks %}
+
+{% block header %}{% endblock header %}
+
+{% block smalltitle %} Create New Management Data {% endblock %}
+
+{% block content %}
+
+<!-- Main Content -->
+<div class="row">
+    <div class="col-xs-12">
+        {% for message in messages %}
+            <h4{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</h4>
+        {% endfor %}
+
+        <div class="widget">
+            <div class="widget-body">
+
+                <form action="." method="POST" class="form"><!-- ACTION WILL BE ON THE SAME PAGE -->
+                    {% csrf_token %} <!-- ALWAYS PUT CSRF TOKEN TO MAKE THE FORM PROTECTED WITH CSRF ATTACK -->
+
+                    <div class="form-group">
+                        {{ form.name.errors }}
+                        {{ form.name.label_tag }}
+                        {{ form.name }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.phone.errors }}
+                        {{ form.phone.label_tag }}
+                        {{ form.phone }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.price.errors }}
+                        {{ form.price.label_tag }}
+                        {{ form.price }}
+                    </div>
+
+                    <input type="submit" value="Save" class="btn btn-success">
+                </form>
+                
+                <hr/>
+
+                <a href="{% url 'order:management' %}" class="btn btn-default">Back to Management</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block footer %}
+{% endblock footer %}

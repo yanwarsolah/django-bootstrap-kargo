@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% load i18n %}
+{% load widget_tweaks %}
+
+{% block header %}
+
+{% endblock header %}
+
+{% block content %}
+
+<!-- Main Content -->
+<div class="row">
+    <div class="col-xs-12">
+        <div class="widget">
+            <div class="widget-body">
+                <div>
+                    <h2>Django Bootstrap Example</h2>
+                    <hr/>
+                    <p class="lead">
+                        This is simple example integrating Django (1.9.6) and Bootstrap (3.3.6)<br/>
+                        CRUD implementation and Data integration
+                        <br/>
+                    </p>
+
+                    <p>
+                        <strong>Q: This project contains application "orders" which contains : </strong>
+                    </p>
+                    <p> 
+                        1. forms.py (Manage forms)<br/> 
+                        2. views.py (as Controller in MVC, it's gather data from model to template and vice-versa)<br/>
+                        3. models.py (manage Model in MVC, it's contains data structure for database)<br/>
+                    </p>
+                    <hr/>
+                    
+                    <p>
+                        <strong>Q: Where the View in MVC? </strong>
+                    </p>
+                    <p> 
+                        We call it templates. All the related templates (HTML) in located in /templates.<br/> 
+                        Each views may required HTML to render the results.<br/>
+                    </p>
+                    <hr/>
+                    
+                    <p>
+                        <strong>Q: Recomendation to read?</strong>
+                    </p>
+                    <p> 
+                        <a href="http://getbootstrap.com/getting-started/">Bootstrap (Documentation)</a><br/>
+                        <a href="https://www.djangoproject.com/start/">Django Start Overview</a><br/>
+
+                        <a href="https://docs.djangoproject.com/ja/1.9/topics/forms/">How to use Django Form</a><br/>
+                        <a href="https://docs.djangoproject.com/en/1.9/topics/db/models/">How to use Django model</a><br/>
+                        <a href="https://docs.djangoproject.com/en/1.9/ref/templates/builtins/">Django Template Builtin</a><br/>
+                        <a href="https://docs.djangoproject.com/en/1.9/topics/http/views/">Django Views</a><br/>
+                        <a href="https://docs.djangoproject.com/en/1.9/topics/migrations/">Django Migration</a><br/>
+                        <a href="https://www.quora.com/How-do-I-find-a-good-Django-tutorial-for-beginners">Django Tutorial for Beginner in Quora</a><br/>
+                    </p>
+                    <hr/>
+
+                    <p>
+                        <strong>Q: Hey, how this app works?</strong>
+                    </p>
+                    <p>Please read each codes to see comments to understand more on how it works</p>
+                    <hr/>
+                    
+                    <p>
+                        <strong>Q: How to deploy a new apps?</strong>
+                    </p>
+
+                    <p>
+                        1. Create a plan on what you will build<br/> 
+                        2. In commandline, you can start a new app "python manage.py startapp <app-name>"<br/>
+                        3. Working on models.py for data structure<br/>
+                        4. Write data processes in views.py<br/>
+                        5. Create templates in /templates/ and linked with render in views.py<br/>
+                        6. Setup urls (app) and also edit "kargo/urls.py" for connection<br/>
+                        7. run "python manage.py makemigration or migrate to implement models updates"<br/>
+                        8. Done!<br/>
+                    </p>
+
+                    <p>
+                        <strong>Q: What tools do you recommend?</strong>
+                    </p>
+
+                    <p>
+                        1. <a href="http://www.aptana.com/products/studio3/download.html">Aptana Studio 3.6 (Dont Upgrade)</a><br/> 
+                        2. <a href="http://cmder.net/">CMDER (Very good commandline and bundled with Git as well)</a><br/> 
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block footer %}
+{% endblock footer %}
