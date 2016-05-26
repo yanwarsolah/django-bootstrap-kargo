@@ -1,3 +1,2 @@
 django==1.9.6
 django-widget-tweaks
-fabric==1.11.1
