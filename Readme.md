@@ -35,5 +35,5 @@ Getting Started
 #### 4. Update Photo Vehicle In Customer Module
 ![Customers Module Kargo](https://github.com/yanwarsolah/django-bootstrap-kargo/raw/master/media/task4.png)
 
-#### 5. Delete Photo Vehicle In Customer Module
+#### 5. Delete Vehicle In Customer Module
 ![Customers Module Kargo](https://github.com/yanwarsolah/django-bootstrap-kargo/raw/master/media/task5.png)
