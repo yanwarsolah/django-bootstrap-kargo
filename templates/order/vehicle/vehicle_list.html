@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% load staticfiles %}
+
+
+{% block header %}{% endblock header %}
+
+{% block smalltitle %} Customers <span class='label label-info label-small'>{{ vehicles.count }}</span> {% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-xs-12">
+    	{% for message in messages %}
+            <h4{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</h4>
+        {% endfor %}
+
+        <div class="widget">
+            <div class="widget-body">
+                <a href="{% url 'order:vehicle_add' %}"><button type="button" class="btn btn-primary"><i class=" fa fa-plus"></i> Create a New</button></a></a>
+                <hr/>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Number Of Vehicle</th>
+                            <th>Name</th>
+                            <th>Driver</th>
+                            <th>Capacity</th>
+                            <th>Photo</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for vehicle in vehicles %}
+                   	<tr>
+                   		<td scope="row">{{ forloop.counter }}</td>
+                   		<td>{{ vehicle.number }}</td>
+                   		<td>{{ vehicle.name }}</td>
+                      <td>{{ vehicle.driver }}</td>
+                   		<td>{{ vehicle.capacity }}</td>
+                      {##}
+                      {% if vehicle.photo  %}
+                        <td><img src="{{ vehicle.photo.url }}" class="img-thumbnail"></td>
+                      {% else %}
+                          <td>
+                              Photo not available, You can <br />
+                              <a href="{% url 'order:vehicle_change_photo' vehicle.number %}" class="btn btn-warning btn-xs">
+                                <i class="fa fa-file-image-o fa-5x" aria-hidden="true"></i> Change Photo
+                              </a>
+                          </td>
+                      {% endif %}
+                   		<td>
+                   			  <a class="btn btn-info btn-xs" href="{% url 'order:vehicle_edit' vehicle.number %}">
+                              <i class=" fa fa-edit"></i> Edit
+                          <a/>
+                          <a class="btn btn-danger btn-xs" href="{% url 'order:vehicle_delete' vehicle.number %}">
+                              <i class=" fa fa-trash"></i> Delete
+                          <a/>
+                   		</td>	
+                   	</tr>
+                   	{# empty is used if data vehicle not available #}
+                   	{% empty %}
+                   	<tr>
+                   		<td colspan="5">
+                   			Data vehicle not availabel, pelase click "Create a New" button for create new vehicle
+                   		</td>
+                   	</tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

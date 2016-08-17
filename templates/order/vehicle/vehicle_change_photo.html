@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block header %} {% endblock header %}
+
+{% block smalltitle %} Update Photo In Customers <span class="label label-info">{{ vehicle.name }}</span> {% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-xs-12">
+        {% for message in messages %}
+            <h4{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</h4>
+        {% endfor %}
+
+        <div class="widget">
+            <div class="widget-body">
+                <table class="table">
+                    <tr>
+                        <th>Number Of Vehicle</th>
+                        <th>Name</th>
+                        <th>Driver</th>
+                        <th>capacity</th>
+                        <th>Photo</th>
+                    </tr>
+                    <tr>
+                        <td>{{ vehicle.number }}</td>
+                        <td>{{ vehicle.name }}</td>
+                        <td>{{ vehicle.driver }}</td>
+                        <td>{{ vehicle.capacity }}</td>
+                        <td>
+                        {% if vehicle.photo.name %}
+                            <img src="{{ vehicle.photo.url }}">
+                        {% else %}
+                            <i class="fa fa-file-image-o" aria-hidden="true"></i>
+                        {% endif %}
+                        </td>
+                    </tr>
+                </table>
+                <form action="." method="post" class="form" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="Chang Photo" class="btn btn-success">
+                </form>
+                
+                <hr/>
+                <a href="javascript:void(window.history.back());" class="btn btn-default">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

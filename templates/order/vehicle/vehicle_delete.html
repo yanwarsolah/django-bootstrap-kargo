@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block header %} {% endblock header %}
+
+{% block smalltitle %} Delete Data Customers <span class="label label-info">{{ vehicle.name }}</span> {% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-xs-12">
+        {% for message in messages %}
+            <h4{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</h4>
+        {% endfor %}
+
+        <div class="widget">
+            <div class="widget-body">
+                <h3>Are you sure delete this object ?</h3>
+                <table class="table">
+                    <tr>
+                        <th>Number Of Vehicle</th>
+                        <th>Name</th>
+                        <th>Driver</th>
+                        <th>capacity</th>
+                        <th>Photo</th>
+                    </tr>
+                    <tr>
+                        <td>{{ vehicle.number }}</td>
+                        <td>{{ vehicle.name }}</td>
+                        <td>{{ vehicle.driver }}</td>
+                        <td>{{ vehicle.capacity }}</td>
+                        <td>
+                        {% if vehicle.photo.name %}
+                            <img src="{{ vehicle.photo.url }}">
+                        {% else %}
+                            <img src="{% static 'images/truck_default.png' %}">
+                        {% endif %}
+                        </td>
+                    </tr>
+                </table>
+                <form action="." method="post" class="form">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="Delete This Vehicle" class="btn btn-warning">
+                </form>
+                
+                <hr/>
+
+                <a href="{% url 'order:vehicle_list' %}" class="btn btn-default">Back to Customers</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

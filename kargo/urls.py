@@ -28,3 +28,9 @@ urlpatterns = [
     # linked url in module orders from main urls.py to app url
     url(r'^order/', include(orders_url, namespace="order")),
 ]
+
+
+# media photo setting for vehilce
+from django.conf import settings
+from django.conf.urls.static import static
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

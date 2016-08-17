@@ -4,6 +4,7 @@ import uuid as uuid
 
 from django.db import models
 from decimal import Decimal
+from django.conf import settings
 
 # every Django model fields can be customized by re-use parameter under
 # simple dictionary format 
@@ -45,3 +46,26 @@ class ODOrder(CommonInfo):
 
     class Meta:
         verbose_name_plural = "Customer"
+
+
+
+class Vehicle(models.Model):
+    """
+    Vehicles contai8n name, driver, number and capacity
+    """
+
+    number = models.CharField(max_length=10, unique=True, verbose_name="Nomer Kendaraan")
+    name = models.CharField(max_length=30, verbose_name="Nama Kendaraan")
+    driver = models.CharField(max_length=40, verbose_name="Sopir")
+    capacity = models.PositiveIntegerField(verbose_name="Kapasitas Muatan")
+    # need package Pillow (i used in version 3.3.0), i put in requirements.txt
+    photo = models.ImageField(upload_to='vehicles/%Y/%m/%d', blank=True, 
+        verbose_name="Foto Kendaraan")
+
+    def __unicode__(self):
+        return self.number
+
+
+
+
+
