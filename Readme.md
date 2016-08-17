@@ -20,3 +20,20 @@ Getting Started
 
 ### Result###
 ![Django Bootstrap Kargo](https://github.com/kargoid/django-bootstrap-kargo/raw/master/media/screenshot.png)
+
+### Result Customers Module
+
+#### 1. Create New Customer Module
+![Customers Module Kargo](https://github.com/yanwarsolah/django-bootstrap-kargo/raw/master/media/task2.png)
+
+#### 2. List Of Customer Mpodule
+![Customers Module Kargo](https://github.com/yanwarsolah/django-bootstrap-kargo/raw/master/media/task1.png)
+
+#### 3. Edit Customer Module
+![Customers Module Kargo](https://github.com/yanwarsolah/django-bootstrap-kargo/raw/master/media/task3.png)
+
+#### 4. Update Photo Vehicle In Customer Module
+![Customers Module Kargo](https://github.com/yanwarsolah/django-bootstrap-kargo/raw/master/media/task4.png)
+
+#### 5. Delete Photo Vehicle In Customer Module
+![Customers Module Kargo](https://github.com/yanwarsolah/django-bootstrap-kargo/raw/master/media/task5.png)
