@@ -15,6 +15,7 @@ from .forms import VehicleForm, VehicleFormDelete, VehicleFormChangePhoto
 from PIL import Image
 from django.conf import settings
 import os
+import platform
 
 def vehicle_list(request):
     vehicles = Vehicle.objects.all()
@@ -80,9 +81,18 @@ def vehicle_change_photo(request, number):
                 # set thumbnails 
                 size = 100, 100
                 # get PATH Photo
-                photo_root = settings.MEDIA_ROOT+"\\"+instance_vehicle.photo.name
+                photo_root = settings.MEDIA_ROOT+"/"+instance_vehicle.photo.name
+                # in this case, if using windows, character "\\" can be replace to /
+                # because settings.MEDIA_ROOT contain "\\" character, but
+                # under linux/unix contain "/".
+                if platform.system().upper() == 'WINDOWS':
+                    print platform
+                    photo_root = photo_root.replace("\\", "/")
+                    print "1", photo_root
+
+                print "2", photo_root
                 # in this case, if i used Windows, i need replace \ characters to / characters
-                im = Image.open(photo_root.replace("\\", "/"))
+                im = Image.open(photo_root)
                 # create thumbnails with size tuple
                 im.thumbnail(size)
                 # saving image
