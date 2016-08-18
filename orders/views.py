@@ -86,12 +86,9 @@ def vehicle_change_photo(request, number):
                 # because settings.MEDIA_ROOT contain "\\" character, but
                 # under linux/unix contain "/".
                 if platform.system().upper() == 'WINDOWS':
-                    print platform
+                    # you can running under windows, this section is work
                     photo_root = photo_root.replace("\\", "/")
-                    print "1", photo_root
 
-                print "2", photo_root
-                # in this case, if i used Windows, i need replace \ characters to / characters
                 im = Image.open(photo_root)
                 # create thumbnails with size tuple
                 im.thumbnail(size)
