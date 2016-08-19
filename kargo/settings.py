@@ -92,6 +92,7 @@ TEMPLATES = [
 ]
 
 
+
 WSGI_APPLICATION = 'kargo.wsgi.application'
 
 # Database
@@ -137,6 +138,7 @@ MEDIA_URL = '/media/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
+
 
 # List of finder classes that know how to find static files in
 # various locations.

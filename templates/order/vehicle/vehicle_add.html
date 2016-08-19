@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load widget_tweaks %}
+
 {% block header %} {% endblock header %}
 
 {% block smalltitle %} Create New Customer Data {% endblock %}
@@ -19,25 +21,25 @@
                     <div class="form-group">
                         {{ form.number.errors }}
                         {{ form.number.label_tag }}
-                        {{ form.number }}
+                        {{ form.number|add_class:'form-control' }}
                     </div>
 
                     <div class="form-group">
                         {{ form.name.errors }}
                         {{ form.name.label_tag }}
-                        {{ form.name }}
+                        {{ form.name|add_class:'form-control' }}
                     </div>
 
                     <div class="form-group">
                         {{ form.driver.errors }}
                         {{ form.driver.label_tag }}
-                        {{ form.driver }}
+                        {{ form.driver|add_class:'form-control' }}
                     </div>
 
                     <div class="form-group">
                         {{ form.capacity.errors }}
                         {{ form.capacity.label_tag }}
-                        {{ form.capacity }}
+                        {{ form.capacity|add_class:'form-control' }}
                     </div>
 
                     <input type="submit" value="Save" class="btn btn-success">

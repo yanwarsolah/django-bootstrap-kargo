@@ -25,10 +25,10 @@ class VehicleForm(forms.ModelForm):
 		exclude = ['photo']
 
 		widgets = {
-			'number': forms.TextInput(attrs={'class': 'form-control'}),
-			'name': forms.TextInput(attrs={'class': 'form-control'}),
-			'driver': forms.TextInput(attrs={'class': 'form-control'}),
-			'capacity': forms.NumberInput(attrs={'class': 'form-control'})
+			'number': forms.TextInput(),
+			'name': forms.TextInput(),
+			'driver': forms.TextInput(),
+			'capacity': forms.NumberInput()
 		}
 
 	def clean_number(self):
